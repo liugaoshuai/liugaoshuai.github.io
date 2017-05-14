@@ -271,7 +271,7 @@
               
                 
                 <a class="post-title-link" href="/2017/05/14/VScode/" itemprop="url">
-                  VScode
+                  VScode - 编辑器配置
                 </a>
               
             
@@ -325,7 +325,23 @@
       
         
           
-            
+            <h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>被同事安利了Visual Studio Code编辑器 从Sublime转VScode上手两个月 趁着Mac官方正式版上线重新安装记录配置过程</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ol>
+<li>轻量级编辑器 大文件秒开</li>
+<li>皮肤多 可配置</li>
+<li>免费占用内存低</li>
+<li>windows系统<code>CTRL+K</code> <code>CTRL+F</code>自动整理功能强大</li>
+<li>插件多</li>
+<li>侧边栏设计比Sublime好<br>…</li>
+</ol>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ol>
+<li>代码提示不是特别友善</li>
+<li>部分快捷键还没发现（例如更改文档类型）</li>
+</ol>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><h1 id="插件篇"><a href="#插件篇" class="headerlink" title="插件篇"></a>插件篇</h1><p>vscode-icons 侧边栏文件图标</p>
+<p>HTML CSS Support 代码提示</p>
+<p>vetur Vue代码高亮及提示</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1>
           
         
       
@@ -447,7 +463,30 @@
           
             <h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>这星期主要涉及可复用的业务模块组件化制作</p>
 <p>涉及知识点包括以下</p>
-<h1 id="ES6module"><a href="#ES6module" class="headerlink" title="ES6module"></a>ES6module</h1><p><code>`Vue(diresctives)</code> <code>Vue(filters)</code> <code>Vue(components)</code></p>
+<h1 id="module"><a href="#module" class="headerlink" title="module"></a>module</h1><p>模块功能主要包括<code>import</code>和<code>export</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;one,two&#125; <span class="keyword">from</span> <span class="string">'../module.js'</span></div><div class="line">one(); <span class="comment">// one</span></div><div class="line">two(); <span class="comment">// two</span></div><div class="line">three(); <span class="comment">// 报错 因为未引入</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// module.js</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">one</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'one'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">two</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'two'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">three</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'three'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>export default</code>默认输出模块内容 由<code>import</code>制定变量使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="built_in">module</span> <span class="keyword">from</span> <span class="string">'../module.js'</span></div><div class="line"><span class="built_in">module</span>(); <span class="comment">// one</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// module.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'one'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><h1 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h1><p>let声明变量只在局部有效<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="keyword">let</span> a = <span class="number">1</span>;<span class="keyword">var</span> b = <span class="number">2</span>;&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// defined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>let具有没有变量提升 不允许重复声明 块级作用域的特性。</p>
+<p>const声明一个不可改变的常量。</p>
+<p>const不可改变的是指针的地址 地址内如果发生改变不可探测。</p>
+<p>ES6共有6种声明变量的方法</p>
+<ol>
+<li>let</li>
+<li>const</li>
+<li>var</li>
+<li>function</li>
+<li>import</li>
+<li>class<br>(ES5只有前两种)</li>
+</ol>
+<h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h1 id="components"><a href="#components" class="headerlink" title="components"></a>components</h1><p>组件（component）是Vue.js最强大的功能之一。</p>
+<p>封装可复用的代码成为组件。</p>
+<p>定义组件内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// helloComponent.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'hello'</span>,</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">msg</span>: <span class="string">'Welcome to Your Vue.js App'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;hello component&lt;/div&gt;'</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>引入组件内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> helloComponent <span class="keyword">from</span> <span class="string">'./helloComponent.js'</span></div></pre></td></tr></table></figure></p>
+<p>声明组件哈希表<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'hello'</span>,</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">components</span> :&#123;</div><div class="line">    helloComponent</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;hello-component&gt;&lt;/hello-component&gt;</div></pre></td></tr></table></figure></p>
 
           
         
